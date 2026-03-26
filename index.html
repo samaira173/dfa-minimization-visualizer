@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>DFA Minimization Visualizer</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+
+</head>
+
+<body>
+
+<h1>DFA Minimization Visualizer</h1>
+<p class="subtitle">-Sam<br>CSE<br>3</p>
+<p class="banner">
+Interactive visualization of DFA minimization using Myhill–Nerode theorem, with step-by-step partitioning, graph transformation, and regex derivation.
+</p>
+<p class="demoHint">
+Tip: Try a random DFA → run minimization → simulate a string → compare graphs.
+</p>
+
+<div class="controls card">
+
+<h2>DFA Builder</h2>
+
+<label>States</label>
+<input id="states" placeholder="a,b,c,d">
+
+<label>Alphabet</label>
+<input id="alphabet" placeholder="0,1">
+
+<label>Start State</label>
+<input id="start">
+
+<label>Final States</label>
+<input id="finals">
+
+<button onclick="createDFA()">Create DFA</button>
+
+</div>
+
+<div class="layout">
+
+<div class="card">
+
+<h2>Transition Table</h2>
+<table id="table"></table>
+
+<button onclick="generateRandomDFA()">Generate Random DFA</button>
+
+</div>
+
+<div class="card">
+
+<h2>DFA Graph</h2>
+
+<p>Click state → choose symbol → click destination</p>
+<p>Right click edge to delete</p>
+
+<div id="cy"></div>
+
+<div class="graph-actions">
+<button onclick="resetView()">Reset View</button>
+<button onclick="startMinimization()">Run Myhill–Nerode</button>
+<button onclick="jumpToMinSection()" class="secondary">Jump to Results</button>
+</div>
+<p class="legend">Start state is green. Final states have a double orange circle.</p>
+
+</div>
+
+</div>
+
+<div id="minSection" style="display:none">
+
+<h2>Myhill–Nerode Visualization</h2>
+
+<div class="card">
+<h3>State Pairs</h3>
+<div id="reachableInfo"></div>
+<p class="hintSmall"></p>
+<div id="pairList"></div>
+</div>
+
+<div class="card">
+<h3>Marked Pairs (Triangle)</h3>
+<div id="pairTable"></div>
+</div>
+
+<div class="card">
+<h3>Algorithm Walkthrough</h3>
+<div id="iterations"></div>
+</div>
+
+<div class="card">
+<h3>Equivalent Classes</h3>
+<div id="equivalent"></div>
+</div>
+
+<div class="card">
+<h3>Minimized DFA</h3>
+<div class="min-tools">
+<button onclick="resetMinimizedView()" class="secondary">Reset Minimized View</button>
+</div>
+<h3 style="margin-top:14px">Minimized Transition Table</h3>
+<table id="minTable"></table>
+<div id="minGraph"></div>
+</div>
+
+<div class="card" id="compareSection">
+<h3>Original vs Minimized Comparison</h3>
+<div class="graph-actions">
+  <button onclick="resetComparisonView()">Reset Comparison View</button>
+</div>
+<div id="compareStats"></div>
+<div id="compareRegex"></div>
+<div class="compare-layout">
+  <div>
+    <h4>Original DFA</h4>
+    <div id="compareOgGraph"></div>
+    <button onclick="resetCompareOgView()" class="secondary">Reset OG Graph</button>
+  </div>
+  <div>
+    <h4>Minimized DFA</h4>
+    <div id="compareMinGraph"></div>
+    <button onclick="resetCompareMinView()" class="secondary">Reset Min Graph</button>
+  </div>
+</div>
+<div class="string-tools" style="margin-top:14px">
+  <input id="testString" placeholder="e.g. 0101">
+  <input id="randLen" type="number" min="0" value="6" style="width:90px">
+  <button onclick="randomString()" class="secondary">Random String</button>
+  <button onclick="testString()">Simulate Both</button>
+  <button onclick="exportGraphsPNG()" class="secondary">Export PNG</button>
+</div>
+<div id="stringResult" style="margin-top:10px"></div>
+</div>
+
+</div>
+
+<div class="bottom-tools">
+  <button onclick="jumpToTop()" class="secondary">Jump To Top</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

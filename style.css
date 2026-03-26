@@ -1,0 +1,417 @@
+body{
+    font-family:Inter,Arial;
+    margin:40px;
+    background:
+    radial-gradient(circle at 10% 12%, rgba(153,15,75,0.55), transparent 40%),
+    radial-gradient(circle at 90% 12%, rgba(61,214,255,0.28), transparent 42%),
+    radial-gradient(circle at 50% 100%, rgba(255,79,216,0.22), transparent 50%),
+    linear-gradient(180deg, #07060f 0%, #0f0b1b 45%, #0b0716 100%);
+    color:#f3f4ff;
+    }
+    
+    h1{
+    font-weight:600;
+    margin-bottom:20px;
+    color:#fff;
+    text-align:center;
+    font-size:42px;
+    letter-spacing:0.6px;
+    }
+
+    .subtitle{
+    text-align:center;
+    margin-top:-8px;
+    margin-bottom:18px;
+    color:rgba(243,244,255,0.9);
+    line-height:1.3;
+    }
+
+    .banner{
+    text-align:center;
+    opacity:0.85;
+    margin:-6px auto 8px auto;
+    max-width:980px;
+    }
+
+    .demoHint{
+    text-align:center;
+    opacity:0.75;
+    margin:0 auto 18px auto;
+    max-width:980px;
+    }
+
+    #reachableInfo{
+    margin-top:8px;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.10);
+    background:rgba(0,0,0,0.20);
+    }
+
+    .pairPill{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:999px;
+    margin:6px 8px 0 0;
+    border:1px solid rgba(255,255,255,0.12);
+    background:rgba(153,15,75,0.10);
+    cursor:pointer;
+    user-select:none;
+    }
+
+    .pairPill:hover{
+    background:rgba(255,79,216,0.14);
+    border-color:rgba(255,79,216,0.30);
+    }
+
+    .hintSmall{
+    margin:8px 0 6px 0;
+    opacity:0.78;
+    font-size:13px;
+    line-height:1.35;
+    color:#f3f4ff;
+    }
+
+    h2,h3,h4,label{
+    color:#f3f4ff;
+    }
+    
+    .card{
+    background:white;
+    padding:18px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    /* darker UI by default */
+    .card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(153,15,75,0.22);
+    box-shadow:0 8px 24px rgba(0,0,0,0.22);
+    color:#f3f4ff;
+    }
+
+    /* Slight elevated look */
+    .card{
+    border:1px solid rgba(122,92,255,0.12);
+    }
+    
+    .controls input{
+    display:block;
+    margin:6px 0 12px 0;
+    padding:8px;
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:6px;
+    background:rgba(0,0,0,0.25);
+    color:#f3f4ff;
+    }
+    
+    button{
+    margin-top:6px;
+    padding:9px 14px;
+    background:linear-gradient(90deg,#990f4b,#ff4fd8 45%,#3dd6ff);
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    }
+    
+    button:hover{
+    filter:brightness(0.95);
+    }
+
+    button.secondary{
+    background:#ffffff;
+    color:#990f4b;
+    border:1px solid rgba(153,15,75,0.45);
+    }
+
+    button.secondary:hover{
+    background:#eef3ff;
+    }
+
+    .min-tools{
+    margin:8px 0 10px 0;
+    }
+
+    .min-tools button{
+    margin-top:0;
+    }
+    
+    .layout{
+    display:flex;
+    gap:40px;
+    margin-top:25px;
+    flex-wrap:nowrap;
+    align-items:flex-start;
+    }
+
+    .layout .card{
+    min-width:0;
+    }
+
+    .layout > .card:first-child{
+    flex:0 0 420px;
+    }
+
+    .layout > .card:nth-child(2){
+    flex:1 1 auto;
+    }
+    
+    table{
+    border-collapse:collapse;
+    background:rgba(0,0,0,0.20);
+    color:#f3f4ff;
+    }
+    
+    td,th{
+    border:1px solid #ddd;
+    padding:6px 8px;
+    text-align:center;
+    }
+    
+    th{
+    background:rgba(153,15,75,0.30);
+    border-color:rgba(255,255,255,0.08);
+    }
+
+    td{
+    border-color:rgba(255,255,255,0.08);
+    }
+    
+    #cy{
+    width:100%;
+    max-width:650px;
+    height:360px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    }
+    
+    #minGraph{
+    width:100%;
+    max-width:650px;
+    height:470px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    margin-top:10px;
+    }
+
+    #table{
+    width:380px;
+    max-width:100%;
+    }
+
+    #minTable{
+    width:380px;
+    max-width:100%;
+    margin-top:8px;
+    margin-left:0;
+    margin-right:0;
+    }
+
+    #minTable th,#minTable td{
+    text-align:left;
+    }
+
+    td select{
+    width:100%;
+    padding:6px 8px;
+    border-radius:6px;
+    border:1px solid #ddd;
+    }
+
+    select{
+    font-family:inherit;
+    }
+    
+    .marked{
+    background:#ff8a8a;
+    }
+    
+    .iterationCard{
+    background:rgba(255,255,255,0.05);
+    border-radius:8px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    padding:12px;
+    margin-top:10px;
+    }
+
+    .tri-gap{
+    border:none !important;
+    background:transparent !important;
+    padding:0 !important;
+    }
+
+    .eq-heading{
+    font-weight:700;
+    margin-bottom:8px;
+    color:#fff;
+    }
+
+    .eq-row{
+    margin-top:6px;
+    padding:8px 10px;
+    border-radius:8px;
+    background:rgba(153,15,75,0.10);
+    border:1px solid rgba(153,15,75,0.20);
+    }
+
+    .eq-row b{
+    color:#fff;
+    }
+
+    @media (max-width: 1200px){
+    #cy,#minGraph,#table{
+        width:100%;
+    }
+    }
+
+    @media (max-width: 900px){
+    .layout{
+        flex-direction:column;
+        gap:16px;
+        flex-wrap:unset;
+    }
+    .layout > .card:first-child,
+    .layout > .card:nth-child(2){
+        flex:unset;
+    }
+    #cy,#minGraph,#table,#minTable{
+        max-width:none;
+    }
+    h1{
+        font-size:34px;
+    }
+    }
+
+    .graph-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:12px;
+    }
+
+    .graph-actions button{
+    margin-top:0;
+    }
+
+    .string-tools{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:10px;
+    align-items:center;
+    }
+
+    .string-tools input{
+    padding:9px 10px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(0,0,0,0.25);
+    color:#f3f4ff;
+    }
+
+    #stringResult{
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.10);
+    background:rgba(0,0,0,0.20);
+    }
+
+    .legend{
+    margin:10px 0 0 0;
+    font-size:14px;
+    color:rgba(243,244,255,0.88);
+    }
+
+    #cy, #minGraph{
+    background:#ffffff;
+    }
+
+    #compareOgGraph,#compareMinGraph{
+    width:100%;
+    max-width:650px;
+    height:360px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    background:#fff;
+    }
+
+    #compareMinGraph{
+    height:470px;
+    }
+
+    .compare-layout{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-top:10px;
+    }
+
+    .compare-layout > div{
+    flex:1 1 650px;
+    }
+
+    #compareStats,#compareRegex{
+    margin-top:10px;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.10);
+    background:rgba(0,0,0,0.20);
+    }
+
+    #compareRegex code{
+    color:#ffd9ef;
+    }
+
+    .regex-block{
+    margin:8px 0 0 0;
+    padding:10px;
+    border-radius:8px;
+    background:rgba(0,0,0,0.28);
+    border:1px solid rgba(255,255,255,0.10);
+    color:#ffd9ef;
+    white-space:pre-wrap;
+    word-break:break-word;
+    overflow-wrap:anywhere;
+    font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size:12px;
+    }
+
+    .bottom-tools{
+    display:flex;
+    justify-content:center;
+    margin:18px 0 4px 0;
+    }
+
+    @keyframes markPop{
+    0%{ transform:scale(0.92); box-shadow:0 0 0 rgba(255,79,216,0.0); }
+    60%{ transform:scale(1.05); box-shadow:0 0 18px rgba(255,79,216,0.25); }
+    100%{ transform:scale(1.0); box-shadow:0 0 0 rgba(255,79,216,0.0); }
+    }
+
+    .marked{
+    background:rgba(255,79,216,0.35);
+    }
+
+    @keyframes cardReveal{
+    from{ opacity:0; transform:translateY(12px); }
+    to{ opacity:1; transform:translateY(0); }
+    }
+
+    @keyframes crossDrop{
+    0%{ opacity:0; transform:translateY(-8px); }
+    100%{ opacity:1; transform:translateY(0); }
+    }
+
+    .iterationCard.revealed{
+    animation:cardReveal 320ms ease-out;
+    }
+
+    .triangleWrap:hover td.newMarkedInStep{
+    background:rgba(0,90,210,0.55) !important;
+    }
+
+    .iterationCard.revealed .newMarkedInStep{
+    animation:crossDrop 360ms ease-out;
+    }
