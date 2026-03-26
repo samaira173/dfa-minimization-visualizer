@@ -36,10 +36,48 @@ let algoStates=[]
 let algoFinalSet=new Set()
 
 function createDFA(){
-try{
-states=document.getElementById("states").value.split(",").map(s=>s.trim())
-alphabet=document.getElementById("alphabet").value.split(",").map(s=>s.trim())
+try{let rawStates=document.getElementById("states").value.trim()
+let rawAlphabet=document.getElementById("alphabet").value.trim()
+let rawStart=document.getElementById("start").value.trim()
+let rawFinals=document.getElementById("finals").value.trim()
 
+// ❌ REQUIRED FIELD VALIDATION
+if(!rawStates || !rawAlphabet || !rawStart){
+alert("Please fill all required fields: States, Alphabet, and Start State.")
+return
+}
+
+// Parse inputs
+states=rawStates.split(",").map(s=>s.trim()).filter(s=>s)
+alphabet=rawAlphabet.split(",").map(s=>s.trim()).filter(s=>s)
+
+let startInput=rawStart.split(",").map(s=>s.trim()).filter(s=>s)
+
+// ❌ Only ONE start state
+if(startInput.length!==1){
+alert("Exactly ONE start state is required.")
+return
+}
+
+start=startInput[0]
+
+// Finals optional
+finals=rawFinals
+? rawFinals.split(",").map(s=>s.trim()).filter(s=>s)
+: []
+
+// ❌ VALIDATE STATES EXIST
+if(!states.includes(start)){
+alert("Start state must be one of the defined states.")
+return
+}
+
+for(let f of finals){
+if(!states.includes(f)){
+alert("Final state '"+f+"' is not in the defined states.")
+return
+}
+}
 stateIndex={}
 states.forEach((s,i)=>stateIndex[s]=i)
 minimizedClasses=[]
@@ -47,18 +85,6 @@ stateToMinClassId={}
 minClassLabelById={}
 minTransitions={}
 startMinClassId=null
-
-let startInput=document.getElementById("start").value.split(",").map(s=>s.trim())
-
-if(startInput.length>1){
-alert("Only ONE start state allowed")
-return
-}
-
-start=startInput[0]
-
-finals=document.getElementById("finals").value.split(",").map(s=>s.trim())
-
 transitions={}
 states.forEach(s=>transitions[s]={})
 
